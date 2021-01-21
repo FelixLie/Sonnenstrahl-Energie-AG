@@ -1,1 +1,1 @@
-# datenbankanwendung Julius hat was geändert
+Datenbankanswendung Sonnenstrahl-Energie-AG
