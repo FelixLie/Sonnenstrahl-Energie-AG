@@ -1,0 +1,22 @@
+{
+  "name": "sonnenstrahl-energie-ag",
+  "version": "1.0.0",
+  "description": "Datenbankanwendung Sonnenstrahl-Energie-AG",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/FelixLie/Sonnenstrahl-Energie-AG.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/FelixLie/Sonnenstrahl-Energie-AG/issues"
+  },
+  "homepage": "https://github.com/FelixLie/Sonnenstrahl-Energie-AG#readme",
+  "dependencies": {
+    "express": "^4.17.1"
+  }
+}
