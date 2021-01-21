@@ -1,1 +1,1 @@
-Datenbankanswendung Sonnenstrahl-Energie-AG
+Datenbankanwendung Sonnenstrahl-Energie-AG
