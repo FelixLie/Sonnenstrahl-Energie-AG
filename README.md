@@ -5,6 +5,8 @@ Repo lokal nutzen:
 2) npm install (dependencies installieren)
 
 
+Benötigte Software:
+- Node.js (v14.15.4)
 
 Verwendete Module:
-- express
+- Express.js
