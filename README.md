@@ -10,3 +10,4 @@ Benötigte Software:
 
 Verwendete Module:
 - Express.js
+- MariaDB
