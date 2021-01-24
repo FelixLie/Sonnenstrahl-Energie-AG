@@ -7,6 +7,7 @@ Repo lokal nutzen:
 
 Benötigte Software:
 - Node.js (v14.15.4)
+- MariaDB Server 10.5.8
 
 Verwendete Module:
 - Express.js
