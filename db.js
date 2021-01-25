@@ -12,13 +12,13 @@ async function dbAbruf() {
         conn = await pool.getConnection();
         rows = await conn.query("SELECT * FROM dummy");
         console.log(rows);
-        
+
     } catch (err) {
         throw err;
 
-    } finally{
-        if(conn) return conn.end();
+    } finally {
+        if (conn) return conn.end();
     }
 }
 
-module.exports = dbAbruf; 
+module.exports = dbAbruf;
