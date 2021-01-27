@@ -29,7 +29,8 @@ async function provideDatabase() {
     }
 }
 
-// SQL query
+
+// SQL query (Create Database + Tables)
 var sqlCommand = `
 CREATE DATABASE IF NOT EXISTS Sonnenstrahl_Energie_AG;
 
