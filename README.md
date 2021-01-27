@@ -13,3 +13,4 @@ Verwendete Module:
 - Express.js
 - MariaDB
 - dotenv
+- body-parser
