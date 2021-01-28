@@ -36,8 +36,9 @@ CREATE DATABASE IF NOT EXISTS Sonnenstrahl_Energie_AG;
 
 USE Sonnenstrahl_Energie_AG;
 
-CREATE TABLE IF NOT EXISTS Tarifdaten (Tarifname VARCHAR(255), PLZ INTEGER(5), Fixkosten VARCHAR(50), VariableKosten VARCHAR(255)); 
+CREATE TABLE IF NOT EXISTS Tarifdaten (Tarif_Id INTEGER PRIMARY KEY AUTO_INCREMENT, Tarifname VARCHAR(255), PLZ INTEGER(5), Fixkosten VARCHAR(50), VariableKosten VARCHAR(255)); 
 `;
 
+//LOAD DATA LOCAL INFILE 'sources.csv' INTO TABLE Tarifdaten FIELDS TERMINATED BY ';' LINES TERMINATED BY '\r\n' IGNORE 1 LINES (Tarif_Id, Tarifname,PLZ,Fixkosten,VariableKosten);
 
 module.exports = provideDatabase;
