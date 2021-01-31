@@ -2,6 +2,7 @@ const mariadb = require('mariadb');
 const fs = require("fs");
 const csv = require("fast-csv");
 
+// Verbindet sich mit MariaDB
 const pool = mariadb.createPool({
   host: 'localhost',
   user: 'root',
@@ -9,11 +10,11 @@ const pool = mariadb.createPool({
   multipleStatements: true
 });
 
-const getConnection =  async () => {
+const getConnection = async () => {
   return pool.getConnection()
 }
 
-
+// Verbindet sich mit der DB sonnenstrahl_energie_ag
 const poolSonnenstrahl = mariadb.createPool({
   host: 'localhost',
   user: 'root',
@@ -26,7 +27,7 @@ const getConnectionSonnenstrahl = exports.getConnectionSonnenstrahl = async () =
 }
 
 
-
+// Erstellt Datenbank und Tabellen
 const createDatabase = exports.createDatabase = async function createDatabaseFunction() {
   let conn;
   let rows;
@@ -54,8 +55,6 @@ const createDatabase = exports.createDatabase = async function createDatabaseFun
 // SQL query
 var sqlCommand = `
 CREATE DATABASE IF NOT EXISTS Sonnenstrahl_Energie_AG;
-
 USE Sonnenstrahl_Energie_AG;
-
 CREATE TABLE IF NOT EXISTS Tarifdaten (Tarifname VARCHAR(255), PLZ INTEGER(5), Fixkosten FLOAT(9,2), VariableKosten FLOAT(9,4), Tarif_Id INTEGER PRIMARY KEY AUTO_INCREMENT); 
 `;
