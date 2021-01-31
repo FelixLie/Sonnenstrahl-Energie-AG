@@ -1,5 +1,5 @@
-#modules
+# Untracked folders
 node_modules/
 
-#.env
+# Untracked files
 .env
