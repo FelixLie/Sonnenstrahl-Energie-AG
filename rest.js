@@ -1,16 +1,22 @@
 const express = require('express');
 const bodyParser = require("body-parser");
+const connection = require("./db").getConnectionSonnenstrahl;
 const {response} = require('express');
 
 const app = express();
-app.use(bodyParser.json());
+//app.use(bodyParser.json());
 
-app.get("/rates", async (req, res) => {
-    const db = await database(TODO);
-    const results = await db("SELECT tarifname, fixkosten, plz, varkosten * ? FROM tarife WHERE plz = ?;", req.query.consumption, req.query.zipCode);
-    res.status(201).send(results);
-})
-app.post("/orders", async (req, res) => {
+/*const getroute = exports.getroute = app.get("/rates", async (req, res) => {
+ 
+    const conn = await connection();
+  //   rows = await conn.query("SELECT Tarifname, Fixkosten, plz, VariableKosten * ? FROM tarife WHERE plz = ?;", /req.body.consumption, req.body.zipCode, function (err, result) {
+       rows = await conn.query("SELECT Tarifname, Fixkosten, plz, VariableKosten FROM tarife;", function (err, result) {
+        console.log("data selected");
+      });
+      console.log(rows);
+   if (conn) return conn.end();
+}); */
+/*const postroute = exports.postroute = app.post("/orders", async (req, res) => {
     const db = await database(TODO);
     const created = await db.run(
         "INSERT INTO kunden (Vorname, Nachname, Straße, Nummer, plz, ort, tarifid, verbrauch, partner) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)",
@@ -26,4 +32,4 @@ app.post("/orders", async (req, res) => {
     );
     const Kunde = await db.get("SELECT * FROM kunden WHERE KundenID = ", [created.lastID]);
     response.status(201).send(book);
-})
+})*/
