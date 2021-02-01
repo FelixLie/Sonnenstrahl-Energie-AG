@@ -3,14 +3,15 @@ Projekt Webprogrammierung: Sonnenstrahl-Energie-AG
 Schritt-für-Schritt Anleitung:
 
 
-1. Installieren Sie folgende Software
+1. Benötigte Software installieren
 
-Node.js (v14.15.4)
+Node.js (14.15.4)
 https://nodejs.org/en/
 
 MariaDB Server (10.5.8) -> user root, password SonnenstrahlAG
 https://mariadb.org/download/
 
-2. Repository Klonen und mit <npm install> dependencies installieren
+2. Repository klonen und mit <npm install> dependencies installieren
 
-3. Mit <npm start> wird die Anwendung ausgeführt 
+3. Mit <npm start> Anwendung ausführen
+- über localhost:3000 erreichbar
