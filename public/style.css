@@ -12,11 +12,12 @@
     top: 0;
     left: 0;
     position: fixed;
-    height: 15%;
-    background-color: transparent;
+    height: 10%;
+    background-color: green;
 }
 
-.Textkasten{
+.mainContent{
+    border-radius: 25px;
     padding: 2em;
     margin-top: 10%;
     margin-left: 20%;
@@ -25,30 +26,33 @@
     background-color: white;
 
 }
-.Textkasten:hover {
-    box-shadow: 10px 10px rgba(0,0,0,.25);
-}
 
+.mainContent-logo{
+    align-content: center;
+    border: 10px;
+    border: black;
+}
+/*
 .Textkasten-Überschrift{
     margin-left: 10%;
     margin-right: 10%;
 }
+*/
 
-.Textkasten-Text{
-    margin-left: 10%;
-    margin-right: 10%;
+.mainContent-text{
+    padding: 10%;
+    margin-top: 1em;
 }
 
-.PLZ{
-    margin-left: 10%;
-    margin-right: 10%;
-}
+
 .PLZ-input{
-    width: 40px;
+    width: 4em;
+    margin-right: 1em;
 }
 
 body{
     background-image: url('./sources/background.jpg');
+    font-size: 1.5em;
 }
 
 footer{
