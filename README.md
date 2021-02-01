@@ -1,7 +1,6 @@
-Projekt Webprogrammierung: Sonnenstrahl-Energie-AG
+Projekt Webprogrammierung Sonnenstrahl-Energie-AG
 
 Schritt-für-Schritt Anleitung:
-
 
 1. Benötigte Software installieren
 
