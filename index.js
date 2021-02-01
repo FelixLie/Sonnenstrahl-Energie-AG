@@ -1,6 +1,6 @@
 const express = require('express');
 const provideDatabase = require('./db').createDatabase;
-const importCSV = require("./helper/importCSV").importDATA;
+const importCSV = require('./helper/importCSV').importDATA;
 const RestAPI = require('./rest') // noch nicht verwendet
 
 
