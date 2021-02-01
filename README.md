@@ -11,3 +11,5 @@ MariaDB Server (10.5.8) -> user root, password SonnenstrahlAG
 https://mariadb.org/download/
 
 2. Repository Klonen und mit <npm install> dependencies installieren
+
+3. Mit <npm start> wird die Anwendung ausgeführt 
