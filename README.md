@@ -1,16 +1,10 @@
-Datenbankanwendung Sonnenstrahl-Energie-AG
+Projekt Webprogrammierung: Sonnenstrahl-Energie-AG
 
-Repo lokal nutzen:
-1) Repo klonen
-2) npm install (dependencies installieren)
+Schritt-für-Schritt Anleitung:
 
 
-Benötigte Software:
+1. Installieren Sie folgende Software
 - Node.js (v14.15.4)
-- MariaDB Server 10.5.8
+- MariaDB Server 10.5.8 -> user root, password SonnenstrahlAG
 
-Verwendete Module:
-- Express.js
-- MariaDB
-- dotenv
-- body-parser
+2. Repository Klonen und mit <npm install> dependencies installieren
