@@ -7,13 +7,13 @@
 }
 
 
-.Weißer-Kasten{
+.top-bar{
     width: 100%;
     top: 0;
     left: 0;
     position: fixed;
     height: 15%;
-    background-color: rgb(255, 255, 255);
+    background-color: transparent;
 }
 
 .Textkasten{
@@ -48,7 +48,7 @@
 }
 
 body{
-    background-image: url('./sources/solar.jpg');
+    background-image: url('./sources/background.jpg');
 }
 
 footer{
@@ -56,8 +56,9 @@ footer{
     width: 100%;
     bottom: 0;
     left:0;
-    background-color: white;
+    background-color: transparent;
     height: 5em;
+    text-align: center;
 }
 /*
 .Navigationsleiste{
