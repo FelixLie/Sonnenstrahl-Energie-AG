@@ -1,8 +1,10 @@
 const express = require('express');
+const bodyParser = require('body-parser');
+
 const provideDatabase = require('./db').createDatabase;
 const importCSV = require('./helper/importCSV').importDATA;
 const connection = require("./db").getConnectionSonnenstrahl;
-const bodyParser = require('body-parser');
+
 //const groute = require('./rest').getroute // noch nicht verwendet
 
 
