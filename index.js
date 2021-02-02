@@ -21,24 +21,24 @@ importCSV().then(() => console.log(`Import Done!`));
 //const gr = groute;
 //Get Route
 app.get("/rates", async (req, res) => {
-    const {zipCode = "%", consumption=500} = req.query;
-    const conn = await connection();
-    rows = await conn.query('SELECT RateName, FixedCosts, ZipCode, VariableCosts, FixedCosts + VariableCosts * ? AS MonthlyCosts FROM RateData WHERE ZipCode LIKE ? AND Status = "active";',[consumption, zipCode]);
-    res.send(rows);
-   if (conn) return conn.end();
-    });
+  const { zipCode = "%", consumption = 500 } = req.query;
+  const conn = await connection();
+  rows = await conn.query('SELECT RateName, FixedCosts, ZipCode, VariableCosts, FixedCosts + VariableCosts * ? AS MonthlyCosts FROM RateData WHERE ZipCode LIKE ? AND Status = "active";', [consumption, zipCode]);
+  res.send(rows);
+  if (conn) return conn.end();
+});
 
-    app.get("/allrates", async (req, res) => {
-      const conn = await connection();
-      rows = await conn.query('SELECT RateName, FixedCosts, ZipCode, VariableCosts FROM RateData WHERE Status = "active";');
-      res.send(rows);
-     if (conn) return conn.end();
-      });
+app.get("/allrates", async (req, res) => {
+  const conn = await connection();
+  rows = await conn.query('SELECT RateName, FixedCosts, ZipCode, VariableCosts FROM RateData WHERE Status = "active";');
+  res.send(rows);
+  if (conn) return conn.end();
+});
 
 app.post("/orders", async (req, res) => {
-  const {firstName, lastName, street, streetNumber, zipCode, city, rateId, consumption, agent} = req.body;
+  const { firstName, lastName, street, streetNumber, zipCode, city, rateId, consumption, agent } = req.body;
   const conn = await connection();
-  rows = await conn.query('INSERT INTO Orders (firstName, lastName, street, streetNumber, zipCode, city, RateId, consumption, agent) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?);',[
+  rows = await conn.query('INSERT INTO Orders (firstName, lastName, street, streetNumber, zipCode, city, RateId, consumption, agent) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?);', [
     firstName,
     lastName,
     street,
@@ -52,7 +52,7 @@ app.post("/orders", async (req, res) => {
   console.log(rows);
   res.send("Done");
   if (conn) return conn.end();
-  
+
 })
 
 
