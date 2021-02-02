@@ -2,7 +2,7 @@ const fs = require("fs");
 const csv = require("fast-csv");
 const getConnection = require("../db").getConnectionSonnenstrahl
 
-
+// CSV import function
 exports.importDATA = async () => {
 	const connection = await getConnection();
 	fs.createReadStream('./CSV/sources.csv')
@@ -28,7 +28,7 @@ exports.importDATA = async () => {
 				console.log(e)
 			}
 
-			// Importierte Datensätze ausgeben
+			// Output imported data
 			//console.log(`ROW=${JSON.stringify(row)}`)
 		})
 		.on('end', rowCount => console.log(`Parsed ${rowCount} rows`))

@@ -6,7 +6,7 @@ const importCSV = require('./helper/importCSV').importDATA;
 const connection = require("./db").getConnectionSonnenstrahl;
 
 //const groute = require('./rest').getroute // noch nicht verwendet
-
+//const gr = groute;
 
 
 const app = express();
@@ -15,13 +15,15 @@ app.use(express.static('sources'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
-// DB erstellen
+// Create DB
 const database = provideDatabase();
 
-// CSV Import
+// CSV import
 importCSV().then(() => console.log(`Import Done!`));
-//const gr = groute;
-//Get Route
+
+
+
+// Routes
 app.get("/rates", async (req, res) => {
   const { zipCode = "%", consumption = 500 } = req.query;
   const conn = await connection();
@@ -58,6 +60,7 @@ app.post("/orders", async (req, res) => {
 })
 
 
+// localhost:3000
 app.listen(3000);
 
 
