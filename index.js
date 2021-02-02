@@ -31,7 +31,7 @@ app.get("/rates", async (req, res) => {
 app.post("/orders", async (req, res) => {
   const {firstName, lastName, street, streetNumber, zipCode, city, rateId, consumption, agent} = req.body;
   const conn = await connection();
-  rows = await conn.query("INSERT INTO Customers (firstName, lastName, street, streetNumber, zipCode, city, RateId, consumption, agent) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?);",[
+  rows = await conn.query("INSERT INTO Orders (firstName, lastName, street, streetNumber, zipCode, city, RateId, consumption, agent) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?);",[
     firstName,
     lastName,
     street,
