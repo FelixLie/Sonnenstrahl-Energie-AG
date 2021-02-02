@@ -31,6 +31,10 @@ li a:hover {
     margin-left: 1em;
 }
 
+.navLink{
+    float: left;
+}
+
 footer{
     position:absolute;
     width: 100%;
@@ -73,6 +77,7 @@ footer{
     padding: 1em;
     text-align: center;
     background-color: white;
+    font-weight: bold;
 }
 
 
@@ -81,8 +86,19 @@ footer{
     margin-right: 1em;
 }
 
-/* login.js */
+/* rates.js */
+#ratesDiv{
+    width: 100%;
+    overflow: hidden;
+}
 
+.card{
+    width: 30%;
+    margin: 0.75em;
+    float: left;
+}
+
+/* login.js */
 #login{
     float:right;
     margin-right: 1em;
