@@ -18,8 +18,8 @@ exports.importDATA = async () => {
 
 			try {
 				await connection.query(`
-					INSERT INTO Tarifdaten
-					(Tarifname, PLZ, Fixkosten, VariableKosten)
+					INSERT INTO RateData
+					(RateName, ZipCode, FixedCosts, VariableCosts)
 					VALUES (?,?,?,?)`
 					, [name, plz, Number(fprice.replace(",", ".")), Number(vprice.replace(",", "."))]
 				);

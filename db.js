@@ -56,6 +56,6 @@ const createDatabase = exports.createDatabase = async function createDatabaseFun
 var sqlCommand = `
 CREATE DATABASE IF NOT EXISTS Sonnenstrahl_Energie_AG;
 USE Sonnenstrahl_Energie_AG;
-CREATE TABLE IF NOT EXISTS Tarifdaten (Tarifname VARCHAR(255), PLZ INTEGER(5), Fixkosten FLOAT(9,2), VariableKosten FLOAT(9,4), Tarif_Id INTEGER PRIMARY KEY AUTO_INCREMENT); 
-CREATE TABLE IF NOT EXISTS Kunden (Kunden_Id INTEGER PRIMARY KEY AUTO_INCREMENT, firstName VARCHAR(255), lastName VARCHAR(255), street VARCHAR(255), streetNumber INTEGER(10), zipCode INTEGER(5), city VARCHAR(255), Tarif_Id INTEGER(10), consumption INT (10), agent VARCHAR(255), FOREIGN KEY (Tarif_Id) REFERENCES Tarifdaten(Tarif_Id));  
+CREATE TABLE IF NOT EXISTS RateData (RateName VARCHAR(255), ZipCode INTEGER(5), FixedCosts FLOAT(9,2), VariableCosts FLOAT(9,4), RateId INTEGER PRIMARY KEY AUTO_INCREMENT); 
+CREATE TABLE IF NOT EXISTS Customers (CustomerId INTEGER PRIMARY KEY AUTO_INCREMENT, firstName VARCHAR(255), lastName VARCHAR(255), street VARCHAR(255), streetNumber INTEGER(10), zipCode INTEGER(5), city VARCHAR(255), RateId INTEGER(10), consumption INT (10), agent VARCHAR(255), FOREIGN KEY (RateId) REFERENCES RateData(RateId));  
 `;
