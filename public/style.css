@@ -5,6 +5,35 @@ body{
     padding: 0;
 }
 
+#navbar{
+    position:absolute;
+    top: 0;
+    width: 100%;
+    background-color: white;
+    height: 7%;
+    overflow: hidden;
+}
+
+ul {
+    margin-top: 0.65em;
+    padding: 0;
+    list-style-type: none;
+}
+
+li {
+    display: inline-block;
+    margin-left: 1em;
+}
+li a {
+  color: black;
+  text-align: center;
+  text-decoration: none;
+}
+
+li a:hover {
+  background-color: green;
+}
+
 #navIcon{
     float: left;
     height: 2.5em;
@@ -47,8 +76,6 @@ body{
     margin-right: 1em;
 }
 
-
-
 footer{
     position:absolute;
     width: 100%;
@@ -56,34 +83,6 @@ footer{
     background-color: transparent;
     height: 4em;
     text-align: center;
+    color: white;
     font-size: 0.5em;
-}
-
-
-#navbar{
-    position:absolute;
-    top: 0;
-    width: 100%;
-    background-color: white;
-    height: 7%;
-}
-
-ul {
-    margin-top: 0.65em;
-    padding: 0;
-    list-style-type: none;
-}
-
-li {
-    display: inline-block;
-    margin-left: 1em;
-}
-li a {
-  color: black;
-  text-align: center;
-  text-decoration: none;
-}
-
-li a:hover {
-  background-color: green;
 }
