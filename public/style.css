@@ -91,3 +91,55 @@ footer{
     color: white;
     font-size: 0.5em;
 }
+
+.mainDiv-Td{
+    width: 80%;
+    margin: auto;
+    margin-top: 7em;
+    padding: 1em;
+
+    border-radius: 25px;
+    box-shadow: 20px 10px rgba(0,0,0,.15);
+    background-color: white;
+}
+
+.Td-Überschrift-Icon{
+    float: left;
+    height: 2em;
+    margin-left: 1em;
+    margin-right: 0.5em;
+}
+
+.Td-Überschrift{
+    font-size: 1.5em;
+}
+
+.mainDiv-Login{
+    width: 50%;
+    margin: auto;
+    margin-top: 7em;
+    padding: 1em;
+
+    border-radius: 25px;
+    box-shadow: 20px 10px rgba(0,0,0,.15);
+    background-color: white;
+}
+
+.Login-Überschrift-Icon{
+    float: left;
+    height: 2em;
+    margin-left: 1em;
+    margin-right: 0.5em;
+}
+
+.Login-Überschrift{
+    font-size: 1.5em;
+}
+
+.Email{
+    font-size: 1em;
+}
+
+.Passwort{
+    margin-left: 2em;
+}
