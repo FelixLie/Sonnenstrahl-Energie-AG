@@ -28,6 +28,13 @@ app.get("/rates", async (req, res) => {
    if (conn) return conn.end();
     });
 
+    app.get("/allrates", async (req, res) => {
+      const conn = await connection();
+      rows = await conn.query("SELECT RateName, FixedCosts, ZipCode, VariableCosts FROM RateData;");
+      res.send(rows);
+     if (conn) return conn.end();
+      });
+
 app.post("/orders", async (req, res) => {
   const {firstName, lastName, street, streetNumber, zipCode, city, rateId, consumption, agent} = req.body;
   const conn = await connection();
