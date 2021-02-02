@@ -17,3 +17,5 @@ const showTables = exports.showTables = async () => {
     } finally {
         if (conn) return conn.end;
     }
+
+}
