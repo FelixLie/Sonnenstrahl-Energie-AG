@@ -23,14 +23,14 @@ importCSV().then(() => console.log(`Import Done!`));
 app.get("/rates", async (req, res) => {
     const {zipCode = "%", consumption=500} = req.query;
     const conn = await connection();
-    rows = await conn.query("SELECT RateName, FixedCosts, ZipCode, VariableCosts, FixedCosts + VariableCosts * ? AS MonthlyCosts FROM RateData WHERE ZipCode LIKE ?;",[consumption, zipCode]);
+    rows = await conn.query('SELECT RateName, FixedCosts, ZipCode, VariableCosts, FixedCosts + VariableCosts * ? AS MonthlyCosts FROM RateData WHERE ZipCode LIKE ? AND Status = "active";',[consumption, zipCode]);
     res.send(rows);
    if (conn) return conn.end();
     });
 
     app.get("/allrates", async (req, res) => {
       const conn = await connection();
-      rows = await conn.query("SELECT RateName, FixedCosts, ZipCode, VariableCosts FROM RateData;");
+      rows = await conn.query('SELECT RateName, FixedCosts, ZipCode, VariableCosts FROM RateData WHERE Status = "active";');
       res.send(rows);
      if (conn) return conn.end();
       });
@@ -38,7 +38,7 @@ app.get("/rates", async (req, res) => {
 app.post("/orders", async (req, res) => {
   const {firstName, lastName, street, streetNumber, zipCode, city, rateId, consumption, agent} = req.body;
   const conn = await connection();
-  rows = await conn.query("INSERT INTO Orders (firstName, lastName, street, streetNumber, zipCode, city, RateId, consumption, agent) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?);",[
+  rows = await conn.query('INSERT INTO Orders (firstName, lastName, street, streetNumber, zipCode, city, RateId, consumption, agent) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?);',[
     firstName,
     lastName,
     street,
