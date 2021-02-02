@@ -1,0 +1,10 @@
+#ratesDiv{
+    width: 100%;
+    overflow: hidden;
+}
+
+.card{
+    width: 30%;
+    margin: 0.75em;
+    float: left;
+}

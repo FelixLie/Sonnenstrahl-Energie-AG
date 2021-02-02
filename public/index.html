@@ -9,15 +9,16 @@
 
 
 <body>
-    <header id="navbar">
+    <header>
 
-        <img id="navIcon" src="./sources/navIcon.png">
+        <nav class="navbar navbar-light" style="background-color: white;">
+            <a href="index.html"><img id="navIcon" src="./sources/navIcon.png"></a>
+            <ul>
+                <li class="navLink"><a href="rates.html">Unsere Tarife</a></li>
+                <li class="navLink"><a href="Login.html">Login</a></li>
+            </ul>
+        </nav>
 
-        <ul>
-            <li><a href="index.html">Home</a></li>
-            <li><a href="Tarifdaten.html">Unsere Tarife</a></li>
-            <li id="login"><a href="Login.html">Login</a></li>
-        </ul>
 
     </header>
 
@@ -29,45 +30,32 @@
 
         <div class="textDiv">
 
-        <p>
-            Mit dem Tarifrechner der Sonnenstrahl Energie AG lassen sich Stromtarife berechnen, die auf Ihre Bedürfnisse zugeschnitten sind.
-        </p>
+            <p>
+                Mit dem Tarifrechner der Sonnenstrahl Energie AG lassen sich Stromtarife berechnen, die auf Ihre
+                Bedürfnisse zugeschnitten sind.
+            </p>
 
-        <form>
-            <label class="PLZ" for="PLZ">PLZ
-                <input class="PLZ-input" PLZ="PLZ">
-            </label>
-            <label class="Verbrauch" for="Verbrauch">Verbrauch
-                <input class="Verbrauch-input" Verbrauch="Verbrauch">
-            </label>
-            <label class="Personen" for="Personen">Personen
-                <input class="Personen-input" Verbrauch="Personen">
-            </label>
-        </form>
-
-        <div class="card text-center">
-            <div class="card-header">
-              Featured
-            </div>
-            <div class="card-body">
-              <h5 class="card-title">Special title treatment</h5>
-              <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-              <a href="#" class="btn btn-primary">Go somewhere</a>
-            </div>
-            <div class="card-footer text-muted">
-              2 days ago
-            </div>
-          </div>
+            <form>
+                <label class="PLZ" for="PLZ">PLZ
+                    <input class="PLZ-input" PLZ="PLZ">
+                </label>
+                <label class="Verbrauch" for="Verbrauch">Verbrauch
+                    <input class="Verbrauch-input" Verbrauch="Verbrauch">
+                </label>
+                <label class="Personen" for="Personen">Personen
+                    <input class="Personen-input" Verbrauch="Personen">
+                </label>
+            </form>
 
         </div>
-    
+
     </section>
 
 
 </body>
 
 <footer>
-    <h1>Made with 💚 in Heidenheim</h1>
+    <p>Made with 💚 @home</p>
 </footer>
 
 </html>
