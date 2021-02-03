@@ -17,7 +17,7 @@
               <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
                 <div class="navbar-nav">
                   <a class="nav-link active" aria-current="page" href="rates.html">Unsere Tarife</a>
-                  <a class="nav-link" href="#">Login</a>
+                  <a class="nav-link" href="Login.html">Login</a>
                 </div>
               </div>
             </div>
@@ -38,22 +38,24 @@
                 Bedürfnisse zugeschnitten sind.
             </p>
 
-            <form>
+            <form action="rates.html" method="get">
                 <label class="PLZ" for="PLZ">PLZ
-                    <input class="PLZ-input" PLZ="PLZ">
+                    <input class="PLZ-input" PLZ="PLZ" name="zip">
                 </label>
                 <label class="Verbrauch" for="Verbrauch">Verbrauch
-                    <input class="Verbrauch-input" Verbrauch="Verbrauch">
+                    <input class="Verbrauch-input" Verbrauch="Verbrauch" name="consump">
                 </label>
                 <label class="Personen" for="Personen">Personen
                     <input class="Personen-input" Verbrauch="Personen">
                 </label>
+                <br> <br>
+                    <input class="Submit-input" submit="submit" type="submit" value="Absenden"> 
             </form>
 
         </div>
 
     </section>
-
+    <script type="text/javascript" src="rates.js"></script>
 
 </body>
 

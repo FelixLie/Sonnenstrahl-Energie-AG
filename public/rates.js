@@ -1,6 +1,6 @@
-const Sonnenstrahl = require("./db").getConnectionSonnenstrahl;
+const Sonnenstrahl = require("../db").getConnectionSonnenstrahl;
 
-const showTables = exports.showTables = async () => {
+/*const showTables = exports.showTables = async () => {
     try{
         let rows;
         let ZipCode = document.getElementById('zip');
@@ -18,4 +18,8 @@ const showTables = exports.showTables = async () => {
         if (conn) return conn.end;
     }
 
-}
+}*/
+
+
+console.log('hello');
+console.log(document.getElementByName('consump'));

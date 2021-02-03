@@ -3,7 +3,7 @@ const bodyParser = require('body-parser');
 
 const provideDatabase = require('./db').createDatabase;
 const importCSV = require('./helper/importCSV').importDATA;
-const connection = require("./db").getConnectionSonnenstrahl;
+const connection = require('./db').getConnectionSonnenstrahl;
 
 //const groute = require('./rest').getroute // noch nicht verwendet
 //const gr = groute;
