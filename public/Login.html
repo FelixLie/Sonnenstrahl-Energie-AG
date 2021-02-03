@@ -2,46 +2,56 @@
 <html>
 
 <head>
-    <link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="style.css">
+<link rel="stylesheet" type="text/css" href="/frontend (bootstrap)/css/bootstrap.min.css">
+<script type="text/javascript" href="/frontend (bootstrap)/js/bootstrap.min.js"></script>
 </head>
 
 
 <body>
-    <header id="navbar">
-
-        <img id="navIcon" src="./sources/navIcon.png">
-
-        <ul>
-            <li><a href="index.html">Home</a></li>
-            <li><a href="Tarifdaten.html">Unsere Tarife</a></li>
-            <li id="login"><a href="Login.html">Login</a></li>
-        </ul>
-
+    <header>
+    
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+            <div class="container-fluid">
+                <a class="navbar-brand" href="index.html"><img id="navIcon" src="./sources/navIcon.png"></a>
+                <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+                    <div class="navbar-nav">
+                        <a class="nav-link active" aria-current="page" href="rates.html">Unsere Tarife</a>
+                        <a class="nav-link" href="Login.html">Login</a>
+                    </div>
+                </div>
+            </div>
+        </nav>
+    
     </header>
 
     <section class="mainDiv-Login">
     
         <div class="Login-Überschrift">
             <img class="Login-Überschrift-Icon" src="./sources/navIcon.png">
-            <h1>Login</h1>
+            <h1>Admin Login</h1>
         </div>
-    
+        <br>
         <div class="Tarife">
             <p>
                 
             </p>
     
-            <form>
-                <label class="Email" for="Email">Email-Adresse
-                    <input class="Email-input" Email="Email">
-                </label>
-                <label class="Passwort" for="Passwort">Passwort
-                    <input class="Passwort-input" Passwort="Passwort">
-                </label>
-            </form>
-            <p>
-                Sie besitzen noch kein Konto? Jetzt <a href="Registrierung.html">registrieren</a>
-            </p>
+<form>
+    <div class="form-group">
+        <label for="exampleInputEmail1">Benutzername</label>
+        <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"
+            placeholder="Enter Benutzername">
+    </div>
+    <br>
+    <div class="form-group">
+        <label for="exampleInputPassword1">Password</label>
+        <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
+    </div>
+    <br>
+    <button type="submit" class="btn btn-primary">Submit</button>
+</form>
+           
     </section>
 
 
@@ -50,7 +60,7 @@
     
     
 <footer>
-    <h1>Made with 💚 in Heidenheim</h1>
+<p>Made with 💚 @home</p>
 </footer>
     
 </html>
