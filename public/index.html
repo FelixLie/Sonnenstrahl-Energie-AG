@@ -37,20 +37,25 @@
                 Mit dem Tarifrechner der Sonnenstrahl Energie AG lassen sich Stromtarife berechnen, die auf Ihre
                 Bedürfnisse zugeschnitten sind.
             </p>
+<br>
+<form>
 
-            <form action="/rate" method="get">
-                <label class="PLZ" for="PLZ">PLZ
-                    <input class="PLZ-input" PLZ="PLZ" name="zipCode">
-                </label>
-                <label class="Verbrauch" for="Verbrauch">Verbrauch
-                    <input class="Verbrauch-input" Verbrauch="Verbrauch" name="consumption">
-                </label>
-                <label class="Personen" for="Personen">Personen
-                    <input class="Personen-input" Verbrauch="Personen" name="Personen">
-                </label>
-                <br> <br>
-                    <input class="Submit-input" submit="submit" type="submit" value="Absenden"> 
-            </form>
+    <div class="row">
+        <div class="col">
+            <input type="text" class="form-control" placeholder="Postleitzahl">
+        </div>
+        <div class="col">
+            <input type="text" class="form-control" placeholder="Verbrauch">
+        </div>
+        <div class="col">
+            <input type="text" class="form-control" placeholder="Personen">
+        </div>
+        
+    </div>
+    <br>
+    <button type="submit" class="btn btn-primary">Tarif berechnen</button>
+    
+</form>
 
         </div>
 
