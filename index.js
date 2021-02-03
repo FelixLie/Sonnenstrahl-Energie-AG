@@ -24,6 +24,15 @@ importCSV().then(() => console.log(`Import Done!`));
 
 
 // Routes
+app.get("/rate", async (req, res) => {
+  const { zipCode, consumption} = req.query;
+  const conn = await connection();
+  rows = await conn.query('SELECT RateName, FixedCosts, ZipCode, VariableCosts, FixedCosts + VariableCosts * ? AS MonthlyCosts FROM RateData WHERE ZipCode LIKE ? AND Status = "active";', [consumption, zipCode]);
+  console.log(rows[1].RateName);
+  res.send(rows);
+  if (conn) return conn.end();
+});
+
 app.get("/rates", async (req, res) => {
   const { zipCode, consumption} = req.query;
   const conn = await connection();
@@ -32,6 +41,7 @@ app.get("/rates", async (req, res) => {
   res.send(rows);
   if (conn) return conn.end();
 });
+
 
 app.get("/allrates", async (req, res) => {
   const conn = await connection();
