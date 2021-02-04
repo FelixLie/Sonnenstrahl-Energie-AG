@@ -5,6 +5,11 @@
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" type="text/css" href="/frontend (bootstrap)/css/bootstrap.min.css">
     <script type="text/javascript" href="/frontend (bootstrap)/js/bootstrap.min.js"></script>
+
+    <script>
+        $(".buttons-only").inputSpinner({ buttonsOnly: true })
+    </script>
+
 </head>
 
 
@@ -13,16 +18,16 @@
 
         <nav class="navbar navbar-expand-lg navbar-light bg-light">
             <div class="container-fluid">
-              <a class="navbar-brand" href="index.html"><img id="navIcon" src="./sources/navIcon.png"></a>
-              <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-                <div class="navbar-nav">
-                  <a class="nav-link active" aria-current="page" href="rates.html">Unsere Tarife</a>
-                  <a class="nav-link" href="login.html">Login</a>
+                <a class="navbar-brand" href="index.html"><img id="navIcon" src="./sources/navIcon.png"></a>
+                <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+                    <div class="navbar-nav">
+                        <a class="nav-link active" aria-current="page" href="rates.html">Unsere Tarife</a>
+                        <a class="nav-link" href="login.html">Login</a>
+                    </div>
                 </div>
-              </div>
             </div>
-          </nav>
-          
+        </nav>
+
     </header>
 
     <section class="mainDiv">
@@ -37,35 +42,38 @@
                 Mit dem Tarifrechner der Sonnenstrahl Energie AG lassen sich Stromtarife berechnen, die auf Ihre
                 Bedürfnisse zugeschnitten sind.
             </p>
-<br>
+            <br>
 
-<form action="rates.html" method="get">
+            <form action="rates.html" method="get">
 
-    <div class="row">
+                <div class="row">
 
-            <div class="col">
-                <input type="text" class="form-control" placeholder="Postleitzahl" name="zipcode"  id="validationTooltip05" required>
-                    <div class="invalid-tooltip">
-                        Please provide a valid zip.
-                    </div>                
-            </div>
-
-        <div class="col">
-            <input type="text" class="form-control" placeholder="Verbrauch in kWh" name="consumption" id="validationTooltip05" required>
+                    <div class="col">
+                        <input type="text" class="form-control" placeholder="Postleitzahl" name="zipcode"
+                            id="validationTooltip05" required>
                         <div class="invalid-tooltip">
                             Please provide a valid zip.
                         </div>
-        </div>
-        
-        <div class="col">
-            <input type="text" class="form-control" placeholder="Personen">
-        </div>
+                    </div>
 
-    </div>
-    <br>
-    <button type="submit" class="btn btn-primary">Tarif berechnen</button>
+                    <div class="col">
+                        <input type="text" class="form-control" placeholder="Verbrauch in kWh" name="consumption"
+                            id="validationTooltip05" required>
+                        <div class="invalid-tooltip">
+                            Please provide a valid zip.
+                        </div>
+                    </div>
 
-</form>
+                    <div class="col">
+                        <input type="number" value="1" min="1" class="form-control" placeholder="Personen">
+                    </div>
+
+
+                </div>
+                <br>
+                <button type="submit" class="btn btn-primary">Tarif berechnen</button>
+
+            </form>
 
         </div>
 
