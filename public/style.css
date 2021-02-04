@@ -104,17 +104,6 @@ footer{
     margin-right: 1em;
 }
 
-.mainDiv-Login{
-    width: 50%;
-    margin: auto;
-    margin-top: 7em;
-    padding: 1em;
-
-    border-radius: 25px;
-    box-shadow: 20px 10px rgba(0,0,0,.15);
-    background-color: white;
-}
-
 .Login-Überschrift-Icon{
     float: left;
     height: 2em;
