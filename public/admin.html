@@ -40,10 +40,8 @@
                 können.
             </p>
             <form action="/ImportCSV" onsubmit="ImportCSV(event)">
-                <label class="form-label" for="customFile">CSV Datei einfügen</label>
-                <input type="file" class="form-control" id="customFile" />
                 <br>
-                <button type="submit" class="btn btn-primary" onclick="ImportCSV(event)">Daten aktualisieren</button>
+                <button type="button" class="btn btn-primary" onclick="ImportCSV(event)">Daten aktualisieren</button>
                 <script>
                     const ImportCSV = e => {
                         $.get("http://localhost:3000/ImportCSV")
