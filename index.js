@@ -31,6 +31,17 @@ filltable();
 
 // Routes
 
+app.get("/login", (req, res) => {
+  console.log("Abfrage");
+  const {password} = req.query;
+  if(password == "admin123"){
+    res.send("true");
+  }
+  else{
+    res.send("false");
+  }
+})
+
 app.get("/ImportCSV", async (req, res) => {
   importCSV()
   res.send("Import erfolgreich")
