@@ -67,11 +67,12 @@
                 <button type="submit" class="btn btn-primary">Tarif berechnen</button>
 
                 <script>
-                    const store = e => {
+                    onst store = e => {
                         var zip = document.getElementById("zip").value
                         var cons = document.getElementById("cons").value
                         var pers = document.getElementById("pers").value
                         if (!cons) {
+                            sessionStorage.setItem("isConsNull", "0")
                             switch (pers) {
                                 case '1':
                                     cons = 1500
@@ -95,6 +96,9 @@
                                     cons = 2000
                                     break;
                             }
+                        }
+                        else {
+                            sessionStorage.setItem("isConsNull", 1)
                         }
                         sessionStorage.setItem("zipCode", zip)
                         sessionStorage.setItem("consumption", cons)
