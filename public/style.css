@@ -99,9 +99,15 @@ footer{
 }
 
 /* login.js */
-#login{
-    float:right;
-    margin-right: 1em;
+.loginMainDiv{
+    width: 30%;
+    margin: auto;
+    margin-top: 7em;
+    padding: 1em;
+
+    border-radius: 25px;
+    box-shadow: 20px 10px rgba(0,0,0,.15);
+    background-color: white;
 }
 
 .Login-Überschrift-Icon{
@@ -113,13 +119,7 @@ footer{
 
 .Login-Überschrift{
     font-size: 1.5em;
+    
 }
 
-.Email{
-    font-size: 1em;
-}
-
-.Passwort{
-    margin-left: 2em;
-}
 
