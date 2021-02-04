@@ -63,7 +63,7 @@
           var cons = document.getElementById("cons").value
           var pers = document.getElementById("pers").value
           if (!cons) {
-            sessionStorage.setItem("isConsNull", true)
+            sessionStorage.setItem("isConsNull", "0")
             switch (pers) {
               case '1':
                 cons = 1500
@@ -88,7 +88,9 @@
                 break;
             }
           }
-          else sessionStorage.setItem("isConsNull", false)
+          else {
+            sessionStorage.setItem("isConsNull", 1)
+          }
           sessionStorage.setItem("zipCode", zip)
           sessionStorage.setItem("consumption", cons)
           sessionStorage.setItem("persons", pers)
@@ -161,11 +163,12 @@
           varP.text('Verbrauchspreis: ' + Math.round(rate.VariableCosts * 10000) / 100 + 'ct/kWh')
         }
         $("#zip").attr("value", sessionStorage.getItem("zipCode"))
-          if(sessionStorage.getItem("isConsNull"))          
-          $("#pers").attr("value",sessionStorage.getItem("persons"))
-          else
+        if (sessionStorage.getItem("isConsNull") == "0") {
+          $("#pers").attr("value", sessionStorage.getItem("persons"))
+        }
+        else {
           $("#cons").attr("value", sessionStorage.getItem("consumption"))
-
+        }
       }
       );
 
