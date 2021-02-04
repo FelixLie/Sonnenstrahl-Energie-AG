@@ -10,3 +10,16 @@ Schritt-für-Schritt Anleitung:
 
 3. MariaDB Server starten (wenn nicht schon automatisch passiert) und mit <npm start> Anwendung ausführen
 - über localhost:3000 erreichbar
+
+
+HTTP-Abfragen:
+- Alle Tarife abfragen: GET http://localhost:3000/rates?zipCode=TODO&consumption=TODO -> zipCode und consumption angeben
+- Neue Bestellung anlegen: POST http://localhost:3000/orders -> Body gemäß API Definition
+
+
+Funktionen/Features:
+- Webseite Sonnenstrahl-Energie-AG
+- Grafischer Tarifrechner
+- Bootstrap Frontend + Logo
+- //Admin Login (-> CSV hochladen)
+- //Tarife Buchen
