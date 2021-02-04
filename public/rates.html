@@ -83,7 +83,7 @@
 
   <script> 
   
-   $.get( "http://localhost:3000/raten", { zipCode: sessionStorage.getItem("zipCode"), consumption: sessionStorage.getItem("Consumption") })
+   $.get( "http://localhost:3000/raten", { zipCode: sessionStorage.getItem("zipCode"), consumption: sessionStorage.getItem("consumption") })
     .then((data) => {
       for(let i = 0; i < 3; i++) {
         
