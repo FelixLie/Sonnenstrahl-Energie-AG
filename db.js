@@ -42,7 +42,6 @@ const createDatabase = exports.createDatabase = async function createDatabaseFun
       console.log("Database created!");
     });
     console.log(rows);
-
   } catch (err) {
     throw err;
 

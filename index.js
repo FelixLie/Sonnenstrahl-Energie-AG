@@ -20,7 +20,14 @@ const database = provideDatabase();
 
 // CSV import
 //importCSV().then(() => console.log(`Import Done!`));
-
+const filltable = async () => {
+  const conn = await connection();
+  let check = await conn.query("SELECT COUNT(*) AS c FROM sonnenstrahl_energie_ag.ratedata;");
+  if(check[0].c == 0){
+    importCSV();
+  }
+}
+filltable();
 
 // Routes
 
