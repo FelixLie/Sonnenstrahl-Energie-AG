@@ -22,7 +22,6 @@ const database = provideDatabase();
 //importCSV().then(() => console.log(`Import Done!`));
 
 
-
 // Routes
 
 app.get("/ImportCSV", async (req, res) => {

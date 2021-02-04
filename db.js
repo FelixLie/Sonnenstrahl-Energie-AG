@@ -58,5 +58,4 @@ CREATE DATABASE IF NOT EXISTS Sonnenstrahl_Energie_AG;
 USE Sonnenstrahl_Energie_AG;
 CREATE TABLE IF NOT EXISTS RateData (RateName VARCHAR(255), ZipCode INTEGER(5), FixedCosts FLOAT(9,2), VariableCosts FLOAT(9,4), RateId INTEGER PRIMARY KEY AUTO_INCREMENT, Status VARCHAR(255)); 
 CREATE TABLE IF NOT EXISTS Orders (OrderId INTEGER PRIMARY KEY AUTO_INCREMENT, firstName VARCHAR(255), lastName VARCHAR(255), street VARCHAR(255), streetNumber INTEGER(10), zipCode INTEGER(5), city VARCHAR(255), RateId INTEGER(10), consumption INT (10), agent VARCHAR(255), FOREIGN KEY (RateId) REFERENCES RateData(RateId)); 
-UPDATE ratedata SET status = "inactive";
 `;
