@@ -25,10 +25,11 @@ importCSV().then(() => console.log(`Import Done!`));
 
 // Routes
 app.get("/raten", async (req, res) => {
-  const { zipCode, consumption} = req.body;
+  const { zipCode, consumption} = req.query;
   const conn = await connection();
-  rows = await conn.query('SELECT RateName, FixedCosts, ZipCode, VariableCosts, FixedCosts + VariableCosts * ? AS MonthlyCosts FROM RateData WHERE ZipCode LIKE ? AND Status = "active";', [consumption, zipCode]);
+  rows = await conn.query('SELECT RateName, FixedCosts, ZipCode, VariableCosts, ROUND(FixedCosts + VariableCosts * ?, 2) AS MonthlyCosts FROM RateData WHERE ZipCode LIKE ? AND Status = "active";', [consumption, zipCode]);
   console.log(rows[1].RateName);
+  RateName1 = rows[1].RateName;
   res.send(rows);
   if (conn) return conn.end();
 });
