@@ -1,0 +1,111 @@
+<!doctype html>
+<html>
+
+<head>
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" type="text/css" href="./frontend (bootstrap)/css/bootstrap.min.css">
+  <script type="text/javascript" href="./frontend (bootstrap)/js/bootstrap.min.js"></script>
+  <script src="https://code.jquery.com/jquery-3.5.1.min.js"> </script>
+</head>
+
+
+<body>
+
+  <header>
+
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="index.html"><img id="navIcon" src="./sources/navIcon.png"></a>
+        <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+          <div class="navbar-nav">
+            <a class="nav-link active" aria-current="page" href="rates.html">Unsere Tarife</a>
+            <a class="nav-link" href="login.html">Login</a>
+          </div>
+        </div>
+      </div>
+    </nav>
+
+  </header>
+
+
+  <section class="mainDiv">
+
+    <div id="ratesHeader">
+      <img id="navIcon" style="height:2.5em; margin-right: 1em;" src="./sources/navIcon.png">
+      <h2>Unsere Tarife</h1>
+        <hr>
+    </div>
+
+
+    <div id="ratesDiv">
+
+
+      <div class="card text-center">
+        <div class="card-header">
+          <h5 class="card-title" id="Tarif1">Tarif</h5>
+        </div>
+        <div class="card-body">
+          <h5 class="card-title" id="Preis1">Gesamtpreis/Monat</h5>
+          <p class="card-text" id="Grundpreis1">Grundpreis</p>
+          <p class="card-text" id="VarPreis1">Preis pro kwh</p>
+          <a href="#" class="btn btn-primary">Buchen</a>
+        </div>
+      </div>
+
+      <div class="card text-center">
+        <div class="card-header">
+          <h5 class="card-title" id="Tarif2">Tarif</h5>
+        </div>
+        <div class="card-body">
+          <h5 class="card-title" id="Preis2">Gesamtpreis/Monat</h5>
+          <p class="card-text" id="Grundpreis2">Grundpreis</p>
+          <p class="card-text" id="VarPreis2">Preis pro kwh</p>
+          <a href="#" class="btn btn-primary">Buchen</a>
+        </div>
+      </div>
+
+      <div class="card text-center">
+        <div class="card-header">
+          <h5 class="card-title" id="Tarif3">Tarif</h5>
+        </div>
+        <div class="card-body">
+          <h5 class="card-title" id="Preis3">Gesamtpreis/Monat</h5>
+          <p class="card-text" id="Grundpreis3">Grundpreis</p>
+          <p class="card-text" id="VarPreis3">Preis pro kwh</p>
+          <a href="#" class="btn btn-primary">Buchen</a>
+        </div>
+      </div>
+
+
+
+    </div>
+  </section>
+
+  <script> 
+  alert("Hallo")
+    $.get("http://localhost:3000/raten", { zipCode: 89520, consumption: 300 })
+    .then((data) => {
+      for(let i = 0; i < 3; i++) {
+          const rate = data[i]
+  
+          const tarifN = $(`#Tarif${i+1}`)
+          const preis = $(`#Preis${i+1}`)
+          const grundP = $(`#Grundpreis${i+1}`)
+          const varP = $(`#VarPreis${i+1}`)
+  
+          tarifN.text(rate.RateName)
+          preis.text(rate.MonthlyCosts)
+          grundP.text(rate.FixedCosts)
+          varP.text(rate.VariableCosts)
+      }
+      console.log(data);
+  }
+    );
+
+</body>
+
+<footer>
+  <p>Made with 💚 @home</p>
+</footer>
+
+</html>
