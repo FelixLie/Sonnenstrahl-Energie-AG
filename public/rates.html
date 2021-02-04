@@ -36,65 +36,68 @@
         <hr>
     </div>
 
-            <form action="rates.html" onsubmit="store(event)">
-            
-            
-            
-              <div class="row">
-            
-                <div class="col">
-                  <input type="text" class="form-control" placeholder="Postleitzahl" id="zip" required>
-                </div>
-                <div class="col">
-                  <input type="text" class="form-control" placeholder="Verbrauch in kWh" id="cons">
-                </div>
-            
-                <div class="col">
-                  <input type="number" value="1" min="1" max="6" class="form-control" placeholder="Personen" id="pers">
-                </div>
-            
-              </div>
-              <br>
-              <button type="submit" style="display:block; margin:auto;" class="btn btn-primary">Tarif berechnen</button>
-            
-              <script>
-                const store = e => {
-                  var zip = document.getElementById("zip").value
-                  var cons = document.getElementById("cons").value
-                  var pers = document.getElementById("pers").value
-                  if (!cons) {
-                    switch (pers) {
-                      case '1':
-                        cons = 1500
-                        break
-                      case '2':
-                        cons = 2500
-                        break
-                      case '3':
-                        cons = 3500
-                        break
-                      case '4':
-                        cons = 4250
-                        break
-                      case '5':
-                        cons = 5000
-                        break
-                      case '6':
-                        cons = 5500
-                        break
-                      default:
-                        cons = 2000
-                        break;
-                    }
-                  }
-                  sessionStorage.setItem("zipCode", zip)
-                  sessionStorage.setItem("consumption", cons)
-                  sessionStorage.setItem("persons", pers)
-                }
-              </script>
-            
-            </form>
-    
+    <form action="rates.html" onsubmit="store(event)">
+
+
+
+      <div class="row">
+
+        <div class="col">
+          <input type="text" class="form-control" placeholder="Postleitzahl" id="zip" required>
+        </div>
+        <div class="col">
+          <input type="text" class="form-control" placeholder="Verbrauch in kWh" id="cons">
+        </div>
+
+        <div class="col">
+          <input type="number" value="1" min="1" max="6" class="form-control" placeholder="Personen" id="pers">
+        </div>
+
+      </div>
+      <br>
+      <button type="submit" style="display:block; margin:auto;" class="btn btn-primary">Tarif berechnen</button>
+
+      <script>
+        const store = e => {
+          var zip = document.getElementById("zip").value
+          var cons = document.getElementById("cons").value
+          var pers = document.getElementById("pers").value
+          if (!cons) {
+            sessionStorage.setItem("isConsNull", true)
+            switch (pers) {
+              case '1':
+                cons = 1500
+                break
+              case '2':
+                cons = 2500
+                break
+              case '3':
+                cons = 3500
+                break
+              case '4':
+                cons = 4250
+                break
+              case '5':
+                cons = 5000
+                break
+              case '6':
+                cons = 5500
+                break
+              default:
+                cons = 2000
+                break;
+            }
+          }
+          else sessionStorage.setItem("isConsNull", false)
+          sessionStorage.setItem("zipCode", zip)
+          sessionStorage.setItem("consumption", cons)
+          sessionStorage.setItem("persons", pers)
+
+        }
+      </script>
+
+    </form>
+
     <div id="ratesDiv">
 
 
@@ -139,30 +142,33 @@
     </div>
   </section>
 
-  <script> 
-  
-   $.get( "http://localhost:3000/raten", { zipCode: sessionStorage.getItem("zipCode"), consumption: sessionStorage.getItem("consumption") })
-    .then((data) => {
-      for(let i = 0; i < 3; i++) {
-        
+  <script>
+
+    $.get("http://localhost:3000/raten", { zipCode: sessionStorage.getItem("zipCode"), consumption: sessionStorage.getItem("consumption") })
+      .then((data) => {
+        for (let i = 0; i < 3; i++) {
+
           const rate = data[i]
-  
-          const tarifN = $(`#Tarif${i+1}`)
-          const preis = $(`#Preis${i+1}`)
-          const grundP = $(`#Grundpreis${i+1}`)
-          const varP = $(`#VarPreis${i+1}`)
-  
+
+          const tarifN = $(`#Tarif${i + 1}`)
+          const preis = $(`#Preis${i + 1}`)
+          const grundP = $(`#Grundpreis${i + 1}`)
+          const varP = $(`#VarPreis${i + 1}`)
+
           tarifN.text(rate.RateName)
           preis.text('Jährliche Kosten: ' + rate.MonthlyCosts + '€')
           grundP.text('Grundpreis: ' + rate.FixedCosts + '€')
-          varP.text('Verbrauchspreis: ' + Math.round(rate.VariableCosts * 10000)/100 + 'ct/kWh')
+          varP.text('Verbrauchspreis: ' + Math.round(rate.VariableCosts * 10000) / 100 + 'ct/kWh')
+        }
+        $("#zip").attr("value", sessionStorage.getItem("zipCode"))
+          if(sessionStorage.getItem("isConsNull"))          
+          $("#pers").attr("value",sessionStorage.getItem("persons"))
+          else
+          $("#cons").attr("value", sessionStorage.getItem("consumption"))
+
       }
-      $("#zip").attr("value",sessionStorage.getItem("zipCode"))
-      $("#cons").attr("value",sessionStorage.getItem("consumption"))
-      $("#pers").attr("value",sessionStorage.getItem("persons"))
-  }
-    );
-  
+      );
+
   </script>
 </body>
 
