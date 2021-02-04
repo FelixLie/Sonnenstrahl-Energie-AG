@@ -36,7 +36,64 @@
         <hr>
     </div>
 
-
+            <form action="rates.html" onsubmit="store(event)">
+            
+            
+            
+              <div class="row">
+            
+                <div class="col">
+                  <input type="text" class="form-control" placeholder="Postleitzahl" id="zip" required>
+                </div>
+                <div class="col">
+                  <input type="text" class="form-control" placeholder="Verbrauch in kWh" id="cons">
+                </div>
+            
+                <div class="col">
+                  <input type="number" value="1" min="1" max="6" class="form-control" placeholder="Personen" id="pers">
+                </div>
+            
+              </div>
+              <br>
+              <button type="submit" class="btn btn-primary">Tarif berechnen</button>
+            
+              <script>
+                const store = e => {
+                  var zip = document.getElementById("zip").value
+                  var cons = document.getElementById("cons").value
+                  var pers = document.getElementById("pers").value
+                  if (!cons) {
+                    switch (pers) {
+                      case '1':
+                        cons = 1500
+                        break
+                      case '2':
+                        cons = 2500
+                        break
+                      case '3':
+                        cons = 3500
+                        break
+                      case '4':
+                        cons = 4250
+                        break
+                      case '5':
+                        cons = 5000
+                        break
+                      case '6':
+                        cons = 5500
+                        break
+                      default:
+                        cons = 2000
+                        break;
+                    }
+                  }
+                  sessionStorage.setItem("zipCode", zip)
+                  sessionStorage.setItem("consumption", cons)
+                }
+              </script>
+            
+            </form>
+    
     <div id="ratesDiv">
 
 
