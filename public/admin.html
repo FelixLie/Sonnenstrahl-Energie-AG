@@ -10,6 +10,28 @@
 
 
 <body>
+    <script>
+        const ImportCSV = e => {
+            $.get("http://localhost:3000/ImportCSV")
+                .then((data) => {
+                    alert(data);
+                }
+                )};
+    </script>
+    <script>
+        $(document).ready(function(){
+          $("#btn2").click(function(){
+            $(".mainDiv").append(`
+            <form action="/ImportCSV" onsubmit="ImportCSV(event)">
+                <br>
+                <button type="button" class="btn btn-primary" onclick="ImportCSV(event)">Daten aktualisieren</button>
+                
+            </form>`);
+          });
+        });
+        </script>
+       
+
     <header>
 
         <nav class="navbar navbar-expand-lg navbar-light bg-light">
@@ -40,20 +62,12 @@
                 Hierfür einfach die Datei "sources.csv" im Verzeichnis "CSV" durch eine gleichnamige Datei ersetzen
                 und mit aktualisieren bestätigen.
             </p>
-            <form action="/ImportCSV" onsubmit="ImportCSV(event)">
-                <br>
-                <button type="button" class="btn btn-primary" onclick="ImportCSV(event)">Daten aktualisieren</button>
-                <script>
-                    const ImportCSV = e => {
-                        $.get("http://localhost:3000/ImportCSV")
-                            .then((data) => {
-                                alert(data);
-                            }
-                            )};
-                </script>
-            </form>
+
+            <button id="btn2" class="btn btn-primary">Spawn Daten aktualisieren</button>
+
 
         </div>
+
 
     </section>
 
