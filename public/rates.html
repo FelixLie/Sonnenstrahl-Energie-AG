@@ -82,10 +82,16 @@
   </section>
 
   <script> 
-  alert("Hallo")
-    $.get("http://localhost:3000/raten", { zipCode: 89520, consumption: 300 })
+  
+    let params = location.search.substr(1).split("&");
+    let zips = params[0].split("=")
+    let Zip = parseInt(zips[1])
+    let cons = params[1].split("=")
+    let consump = parseInt(cons[1])
+    $.get( "http://localhost:3000/raten", { zipCode: Zip , consumption: consump })
     .then((data) => {
       for(let i = 0; i < 3; i++) {
+        
           const rate = data[i]
   
           const tarifN = $(`#Tarif${i+1}`)
@@ -94,14 +100,14 @@
           const varP = $(`#VarPreis${i+1}`)
   
           tarifN.text(rate.RateName)
-          preis.text(rate.MonthlyCosts)
-          grundP.text(rate.FixedCosts)
-          varP.text(rate.VariableCosts)
+          preis.text('Jährliche Kosten: ' + rate.MonthlyCosts + '€')
+          grundP.text('Grundpreis: ' + rate.FixedCosts + '€')
+          varP.text('Verbrauchspreis: ' + Math.round(rate.VariableCosts * 10000)/100 + 'ct/kWh')
       }
-      console.log(data);
   }
     );
-
+  
+  </script>
 </body>
 
 <footer>
