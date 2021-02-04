@@ -38,23 +38,33 @@
                 Bedürfnisse zugeschnitten sind.
             </p>
 <br>
+
 <form action="rates.html" method="get">
 
     <div class="row">
+
+            <div class="col">
+                <input type="text" class="form-control" placeholder="Postleitzahl" name="zipcode"  id="validationTooltip05" required>
+                    <div class="invalid-tooltip">
+                        Please provide a valid zip.
+                    </div>                
+            </div>
+
         <div class="col">
-            <input type="text" class="form-control" placeholder="Postleitzahl" name="zipcode">
+            <input type="text" class="form-control" placeholder="Verbrauch in kWh" name="consumption" id="validationTooltip05" required>
+                        <div class="invalid-tooltip">
+                            Please provide a valid zip.
+                        </div>
         </div>
-        <div class="col">
-            <input type="text" class="form-control" placeholder="Verbrauch in kWh" name="consumption">
-        </div>
+        
         <div class="col">
             <input type="text" class="form-control" placeholder="Personen">
         </div>
-        
+
     </div>
     <br>
     <button type="submit" class="btn btn-primary">Tarif berechnen</button>
-    
+
 </form>
 
         </div>
