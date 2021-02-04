@@ -5,6 +5,7 @@
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" type="text/css" href="/frontend (bootstrap)/css/bootstrap.min.css">
     <script type="text/javascript" href="/frontend (bootstrap)/js/bootstrap.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"> </script>
 </head>
 
 
@@ -35,13 +36,22 @@
         <div class="textDiv">
 
             <p>
-               Dies ist der Admin Bereich auf welchem die Daten per Hochladen einer CSV Datei aktualisiert werden können. 
+                Dies ist der Admin Bereich auf welchem die Daten per Hochladen einer CSV Datei aktualisiert werden
+                können.
             </p>
+            <form action="/ImportCSV" onsubmit="ImportCSV(event)">
                 <label class="form-label" for="customFile">CSV Datei einfügen</label>
                 <input type="file" class="form-control" id="customFile" />
                 <br>
-                <button type="submit" class="btn btn-primary">Daten aktualisieren</button>
-
+                <button type="submit" class="btn btn-primary" onclick="ImportCSV(event)">Daten aktualisieren</button>
+                <script>
+                    const ImportCSV = e => {
+                        $.get("http://localhost:3000/ImportCSV")
+                            .then((data) => {
+                                alert(data);
+                            }
+                    });
+                </script>
             </form>
 
         </div>

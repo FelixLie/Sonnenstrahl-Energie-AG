@@ -19,11 +19,17 @@ app.use(bodyParser.urlencoded({ extended: true }));
 const database = provideDatabase();
 
 // CSV import
-importCSV().then(() => console.log(`Import Done!`));
+//importCSV().then(() => console.log(`Import Done!`));
 
 
 
 // Routes
+
+app.get("/ImportCSV", async (req, res) => {
+  importCSV()
+  res.send("Import erfolgreich")
+});
+
 app.get("/raten", async (req, res) => {
   const { zipCode, consumption} = req.query;
   const conn = await connection();
