@@ -156,6 +156,9 @@
           grundP.text('Grundpreis: ' + rate.FixedCosts + '€')
           varP.text('Verbrauchspreis: ' + Math.round(rate.VariableCosts * 10000)/100 + 'ct/kWh')
       }
+      $("#zip").attr("value",sessionStorage.getItem("zipCode"))
+      $("#cons").attr("value",sessionStorage.getItem("consumption"))
+      $("#pers").attr("value",sessionStorage.getItem("persons"))
   }
     );
   
