@@ -23,3 +23,7 @@ Funktionen/Features:
 - Bootstrap Frontend + Logo
 - //Admin Login (-> CSV hochladen)
 - //Tarife Buchen
+
+Wichtig:
+Beim Tarifrechner wird die Angabe des Verbrauchs der Angabe der Personen bevorzugt! Soll der Preis nach den Personen
+berechnet werden, muss der Verbauch aus dem Eingabefeld entfernt werden.
