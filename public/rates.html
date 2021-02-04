@@ -83,12 +83,7 @@
 
   <script> 
   
-    let params = location.search.substr(1).split("&");
-    let zips = params[0].split("=")
-    let Zip = parseInt(zips[1])
-    let cons = params[1].split("=")
-    let consump = parseInt(cons[1])
-    $.get( "http://localhost:3000/raten", { zipCode: Zip , consumption: consump })
+   $.get( "http://localhost:3000/raten", { zipCode: sessionStorage.getItem("zipCode"), consumption: sessionStorage.getItem("Consumption") })
     .then((data) => {
       for(let i = 0; i < 3; i++) {
         
