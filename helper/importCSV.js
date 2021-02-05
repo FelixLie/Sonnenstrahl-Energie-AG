@@ -5,7 +5,9 @@ const getConnection = require("../db").getConnectionSonnenstrahl
 // CSV import function
 exports.importDATA = async () => {
 	const connection = await getConnection();
+	// Sets old data inactive
 	await connection.query('UPDATE ratedata SET status = "inactive";');
+	// Parses CSV
 	fs.createReadStream('./CSV/sources.csv')
 		.pipe(csv.parse({ delimiter: ";", renameHeaders: true, headers: ["name", "plz", "fprice", "vprice"] }))
 		.on('error', error => console.error(error))
@@ -18,6 +20,7 @@ exports.importDATA = async () => {
 			const { name, plz, fprice, vprice } = row;
 
 			try {
+				// Inserts CSV into table
 				await connection.query(`
 					INSERT INTO RateData
 					(RateName, ZipCode, FixedCosts, VariableCosts, Status)

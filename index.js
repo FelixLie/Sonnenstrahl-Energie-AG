@@ -5,9 +5,6 @@ const provideDatabase = require('./db').createDatabase;
 const importCSV = require('./helper/importCSV').importDATA;
 const connection = require('./db').getConnectionSonnenstrahl;
 
-//const groute = require('./rest').getroute // noch nicht verwendet
-//const gr = groute;
-
 
 const app = express();
 app.use(express.static('public'));
@@ -18,12 +15,11 @@ app.use(bodyParser.urlencoded({ extended: true }));
 // Create DB
 const database = provideDatabase();
 
-// CSV import
-//importCSV().then(() => console.log(`Import Done!`));
+// Imports CSV if there are not rate data
 const filltable = async () => {
   const conn = await connection();
   let check = await conn.query("SELECT COUNT(*) AS c FROM sonnenstrahl_energie_ag.ratedata;");
-  if(check[0].c == 0){
+  if (check[0].c == 0) {
     importCSV();
   }
 }
@@ -31,42 +27,46 @@ filltable();
 
 // Routes
 
+// Lgogin Route
 app.get("/login", (req, res) => {
   console.log("Abfrage");
-  const {password} = req.query;
-  if(password == "admin123"){
+  const { password } = req.query;
+  if (password == "admin123") {
     res.send("true");
   }
-  else{
+  else {
     res.send("false");
   }
 })
 
+//ImportRoute
 app.get("/ImportCSV", async (req, res) => {
   importCSV()
   res.send("Import erfolgreich")
 });
 
+//Rate Route for graphical rate calculator
 app.get("/raten", async (req, res) => {
-  const { zipCode, consumption} = req.query;
+  const { zipCode, consumption } = req.query;
   const conn = await connection();
-  rows = await conn.query('SELECT RateName, FixedCosts, ZipCode, VariableCosts, ROUND(FixedCosts + VariableCosts * ?, 2) AS MonthlyCosts FROM RateData WHERE ZipCode LIKE ? AND Status = "active";', [consumption, zipCode]);
-  console.log(rows[1].RateName);
-  RateName1 = rows[1].RateName;
+  rows = await conn.query('SELECT RateName, FixedCosts, ZipCode, VariableCosts, ROUND(FixedCosts + VariableCosts * ?, 2) AS MonthlyCosts FROM RateData WHERE ZipCode LIKE ? AND Status = "active";',
+   [consumption, zipCode]);
   res.send(rows);
   if (conn) return conn.end();
 });
 
+//Rate Route for rate requests
 app.get("/rates", async (req, res) => {
-  const { zipCode, consumption} = req.query;
+  const { zipCode, consumption } = req.query;
   const conn = await connection();
-  rows = await conn.query('SELECT RateName, FixedCosts, ZipCode, VariableCosts, FixedCosts + VariableCosts * ? AS MonthlyCosts FROM RateData WHERE ZipCode LIKE ? AND Status = "active";', [consumption, zipCode]);
+  rows = await conn.query('SELECT RateName, FixedCosts, ZipCode, VariableCosts, FixedCosts + VariableCosts * ? AS MonthlyCosts FROM RateData WHERE ZipCode LIKE ? AND Status = "active";',
+   [consumption, zipCode]);
   console.log(rows[1].RateName);
   res.send(rows);
   if (conn) return conn.end();
 });
 
-
+//Rate Route for all rates
 app.get("/allrates", async (req, res) => {
   const conn = await connection();
   rows = await conn.query('SELECT RateName, FixedCosts, ZipCode, VariableCosts FROM RateData WHERE Status = "active";');
@@ -75,6 +75,8 @@ app.get("/allrates", async (req, res) => {
   if (conn) return conn.end();
 });
 
+
+//Route for incoming orders
 app.post("/orders", async (req, res) => {
   const { firstName, lastName, street, streetNumber, zipCode, city, rateId, consumption, agent } = req.body;
   const conn = await connection();
@@ -99,8 +101,3 @@ app.post("/orders", async (req, res) => {
 // localhost:3000
 app.listen(3000);
 
-
-// app.listen(3000, () => {
-// 	console.log(`Started import!`)
-// 	importCSV().then(() => console.log(`Import Done!`));
-// });
