@@ -39,13 +39,13 @@ app.get("/login", (req, res) => {
   }
 })
 
-//ImportRoute
+//Import Route
 app.get("/ImportCSV", async (req, res) => {
   importCSV()
   res.send("Import erfolgreich")
 });
 
-//Rate Route for graphical rate calculator
+//Route for graphical rate calculator
 app.get("/raten", async (req, res) => {
   const { zipCode, consumption } = req.query;
   const conn = await connection();
@@ -55,7 +55,7 @@ app.get("/raten", async (req, res) => {
   if (conn) return conn.end();
 });
 
-//Rate Route for rate requests
+//Route for rate requests
 app.get("/rates", async (req, res) => {
   const { zipCode, consumption } = req.query;
   const conn = await connection();
@@ -66,7 +66,7 @@ app.get("/rates", async (req, res) => {
   if (conn) return conn.end();
 });
 
-//Rate Route for all rates
+//Route for all rates
 app.get("/allrates", async (req, res) => {
   const conn = await connection();
   rows = await conn.query('SELECT RateName, FixedCosts, ZipCode, VariableCosts FROM RateData WHERE Status = "active";');
