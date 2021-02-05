@@ -15,7 +15,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 // Create DB
 const database = provideDatabase();
 
-// Imports CSV if there are not rate data
+// Imports CSV if there is no rate data
 const filltable = async () => {
   const conn = await connection();
   let check = await conn.query("SELECT COUNT(*) AS c FROM sonnenstrahl_energie_ag.ratedata;");
