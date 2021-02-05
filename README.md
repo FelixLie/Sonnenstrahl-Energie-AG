@@ -17,7 +17,8 @@ HTTP-Abfragen (z.B. via Postman):
 - Tarife & Preis unter Angabe von PLZ & Verbrauch abfragen: GET http://localhost:3000/rates?zipCode=TODO&consumption=TODO -> zipCode und consumption angeben
 - Neue Bestellung anlegen: POST http://localhost:3000/orders
 body:
-```{
+```
+{
     "firstName": "<<Vorname>>",
     "lastName": "<<Nachname>>",
     "street": "<<Straße>>",
@@ -27,7 +28,8 @@ body:
     "rateId": 1,
     "consumption": <<Verbrauch>>,
     "agent": "<<Vergleichsportal>>"
-}```
+}
+```
 
 Funktionen/Features:
 - Webseite Sonnenstrahl-Energie-AG
