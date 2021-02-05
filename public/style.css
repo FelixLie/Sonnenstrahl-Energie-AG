@@ -48,7 +48,7 @@ footer{
 }
 
 
-/* index.js */
+/* index.hmtl */
 .mainDiv{
     width: 50%;
     margin: auto;
@@ -86,7 +86,7 @@ footer{
     margin-right: 1em;
 }
 
-/* rates.js */
+/* rates.html */
 #ratesDiv{
     width: 100%;
     overflow: hidden;
@@ -98,7 +98,7 @@ footer{
     float: left;
 }
 
-/* login.js */
+/* login.html */
 .loginMainDiv{
     width: 30%;
     margin: auto;
@@ -121,4 +121,8 @@ footer{
     font-size: 1.5em;   
 }
 
-
+#btn2{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
