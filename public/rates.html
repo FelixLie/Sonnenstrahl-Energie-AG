@@ -59,9 +59,11 @@
 
       <script>
         const store = e => {
+          // Gets values from form
           var zip = document.getElementById("zip").value
           var cons = document.getElementById("cons").value
           var pers = document.getElementById("pers").value
+          // Sets a new value for consumption if only a number of persons is given
           if (!cons) {
             sessionStorage.setItem("isConsNull", "0")
             switch (pers) {
@@ -91,6 +93,7 @@
           else {
             sessionStorage.setItem("isConsNull", 1)
           }
+          // Stores the values in session storage
           sessionStorage.setItem("zipCode", zip)
           sessionStorage.setItem("consumption", cons)
           sessionStorage.setItem("persons", pers)
@@ -145,9 +148,10 @@
   </section>
 
   <script>
-
+    // Gets Rates from database
     $.get("http://localhost:3000/raten", { zipCode: sessionStorage.getItem("zipCode"), consumption: sessionStorage.getItem("consumption") })
       .then((data) => {
+        // Fills in the values
         for (let i = 0; i < 3; i++) {
 
           const rate = data[i]
@@ -162,6 +166,7 @@
           grundP.text('Grundpreis: ' + rate.FixedCosts + '€')
           varP.text('Verbrauchspreis: ' + Math.round(rate.VariableCosts * 10000) / 100 + 'ct/kWh')
         }
+        // Fills in the searched values
         $("#zip").attr("value", sessionStorage.getItem("zipCode"))
         if (sessionStorage.getItem("isConsNull") == "0") {
           $("#pers").attr("value", sessionStorage.getItem("persons"))

@@ -67,10 +67,12 @@
                 <button type="submit" class="btn btn-primary">Tarif berechnen</button>
 
                 <script>
+                    // Gets values from form
                     const store = e => {
                         var zip = document.getElementById("zip").value
                         var cons = document.getElementById("cons").value
                         var pers = document.getElementById("pers").value
+                        // Sets a new value for consumption if only a number of persons is given
                         if (!cons) {
                             sessionStorage.setItem("isConsNull", "0")
                             switch (pers) {
@@ -100,6 +102,7 @@
                         else {
                             sessionStorage.setItem("isConsNull", 1)
                         }
+                        // Stores the values in session storage
                         sessionStorage.setItem("zipCode", zip)
                         sessionStorage.setItem("consumption", cons)
                         sessionStorage.setItem("persons", pers)

@@ -30,31 +30,33 @@
             $.get("http://localhost:3000/login", { password: sessionStorage.getItem("pass") })
                 .then((data) => {
                     if (data == "true") {
+                        // Spawns Admin Area if login is succesful
                         $(".loginMainDiv").replaceWith(`
-                        <section class="mainDiv">
-            <div class="Login-Überschrift">
-            <img class="Login-Überschrift-Icon" src="./sources/navIcon.png">
-            <h1>Admin Bereich</h1>
-        </div>
+                            <section class="mainDiv">
+                                <div class="Login-Überschrift">
+                                    <img class="Login-Überschrift-Icon" src="./sources/navIcon.png">
+                                        <h1>Admin Bereich</h1>
+                                </div>
 
-        <div class="textDiv">
+                                <div class="textDiv">
 
-            <p>
-                Dies ist der Admin Bereich, auf welchem die verwendeten Datensätze aktualisiert werden können.
-                Hierfür einfach die Datei "sources.csv" im Verzeichnis "CSV" durch eine gleichnamige Datei ersetzen
-                und mit aktualisieren bestätigen.
-            </p>
+                                    <p>
+                                        Dies ist der Admin Bereich, auf welchem die verwendeten Datensätze aktualisiert werden können.
+                                        Hierfür einfach die Datei "sources.csv" im Verzeichnis "CSV" durch eine gleichnamige Datei ersetzen
+                                        und mit aktualisieren bestätigen.
+                                    </p>
 
 
-        </div>
-            <form action="/ImportCSV" onsubmit="ImportCSV(event)">
-                <br>
-                <button id="btn2" type="button" class="btn btn-primary" onclick="ImportCSV(event)">Daten aktualisieren</button>
-                
-            </form>
-            </section>`);
+                                </div>
+                                    <form action="/ImportCSV" onsubmit="ImportCSV(event)">
+                                        <br>
+                                        <button id="btn2" type="button" class="btn btn-primary" onclick="ImportCSV(event)">Daten aktualisieren</button>
+                                        
+                                    </form>
+                            </section>`);
                     }
                     if (data == "false") {
+                        // Gives alert if login is unsuccessful
                         alert("Falsches Passwort")
                     }
                 });
@@ -63,6 +65,7 @@
 
     <script>
         const ImportCSV = e => {
+            // Imports CSV on Button Press
             $.get("http://localhost:3000/ImportCSV")
                 .then((data) => {
                     alert(data);
@@ -92,6 +95,7 @@
                 <button type="submit" class="btn btn-primary">Anmelden</button>
             </form>
             <script>
+                // Stores password on buttonclick
                 const login = e => {
                     var password = document.getElementById("password").value;
                     sessionStorage.setItem("pass", password);
