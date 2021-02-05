@@ -35,7 +35,7 @@ Funktionen/Features:
 - Webseite Sonnenstrahl-Energie-AG
 - Grafischer Tarifrechner
 - Bootstrap Frontend + Logo
-- Passwortgeschützter Adminbereich (-> Tarifdaten manuell aktualisieren)
+- Passwortgeschützter Adminbereich (-> Passwort: admin123, Tarifdaten manuell aktualisieren)
 
 Wichtig:
 Beim Tarifrechner wird die Angabe des Verbrauchs den Personen bevorzugt! Soll der Preis nach den Personen
