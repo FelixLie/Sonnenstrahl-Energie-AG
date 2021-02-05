@@ -25,7 +25,9 @@ const filltable = async () => {
 }
 filltable();
 
-// Routes
+/* 
+Routes
+*/
 
 // Login Route
 app.get("/login", (req, res) => {
