@@ -27,7 +27,7 @@ filltable();
 
 // Routes
 
-// Lgogin Route
+// Login Route
 app.get("/login", (req, res) => {
   console.log("Abfrage");
   const { password } = req.query;
