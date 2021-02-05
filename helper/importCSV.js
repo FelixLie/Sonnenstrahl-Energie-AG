@@ -37,5 +37,5 @@ exports.importDATA = async () => {
 		})
 		.on('end', rowCount => console.log(`Parsed ${rowCount} rows`))
 		.on("error", (err) => console.log(`err`))
-	
+
 }
