@@ -2,7 +2,7 @@ const mariadb = require('mariadb');
 const fs = require("fs");
 const csv = require("fast-csv");
 
-// Connects to MariaDB
+// Creates Pool for connection
 const pool = mariadb.createPool({
   host: 'localhost',
   user: 'root',
@@ -10,11 +10,12 @@ const pool = mariadb.createPool({
   multipleStatements: true
 });
 
+// Connects to mariadb
 const getConnection = async () => {
   return pool.getConnection()
 }
 
-// Connects to database sonnenstrahl_energie_ag
+// Creates pool for database sonnenstrahl_energie_ag
 const poolSonnenstrahl = mariadb.createPool({
   host: 'localhost',
   user: 'root',
@@ -22,6 +23,7 @@ const poolSonnenstrahl = mariadb.createPool({
   database: 'sonnenstrahl_energie_ag',
 });
 
+// Connects to database sonnenstrahl_energie_ag
 const getConnectionSonnenstrahl = exports.getConnectionSonnenstrahl = async () => {
   return poolSonnenstrahl.getConnection()
 }
