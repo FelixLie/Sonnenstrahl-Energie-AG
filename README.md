@@ -35,10 +35,12 @@ Funktionen/Features:
 - Webseite Sonnenstrahl-Energie-AG
 - Grafischer Tarifrechner
 - Bootstrap Frontend + Logo
-- Passwortgeschützter Adminbereich (-> Passwort: admin123, Tarifdaten manuell aktualisieren)
+- Passwortgeschützter Adminbereich (-> Passwort: admin123) 
+- Manuelles Ändern/Aktualisieren der Tarifdaten im Adminbereich
+
 
 Wichtig:
-Beim Tarifrechner wird die Angabe des Verbrauchs den Personen bevorzugt! Soll der Preis nach den Personen
+Beim Tarifrechner wird die Angabe des Verbrauchs den Personen bevorzugt. Soll der Preis nach den Personen
 berechnet werden, muss der Verbauch aus dem Eingabefeld entfernt werden.
 
-Die Tarifdaten können im Adminbereich aktualisiert werden. Hierfür einfach die Datei "sources.csv" im Verzeichnis "CSV" durch eine gleichnamige Datei ersetzen und mit aktualisieren bestätigen.
+Die Tarifdaten können im Adminbereich aktualisiert werden. Hierfür einfach die Datei "sources.csv" im Verzeichnis "CSV" durch eine gleichnamige Datei ersetzen und mit "Daten aktualisieren" bestätigen.
